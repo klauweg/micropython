@@ -25,5 +25,6 @@ extern const mp_obj_type_t machine_sdcard_type;
 void machine_pins_init(void);
 void machine_pins_deinit(void);
 void machine_timer_deinit_all(void);
+int machine_pin_get_gpio(mp_obj_t pin_in);
 
 #endif // MICROPY_INCLUDED_ESP32_MODMACHINE_H

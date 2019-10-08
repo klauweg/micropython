@@ -132,6 +132,20 @@ gpio_num_t machine_pin_get_id(mp_obj_t pin_in) {
     return self->id;
 }
 
+//---------------------------------------
+int machine_pin_get_gpio(mp_obj_t pin_in)
+{
+    if (MP_OBJ_IS_INT(pin_in)) {
+        int wanted_pin = mp_obj_get_int(pin_in);
+        if (!GPIO_IS_VALID_GPIO(wanted_pin)) {
+                mp_raise_ValueError("Invalid pin number");
+        }
+        return wanted_pin;
+    }
+    return machine_pin_get_id(pin_in);
+}
+
+
 STATIC void machine_pin_print(const mp_print_t *print, mp_obj_t self_in, mp_print_kind_t kind) {
     machine_pin_obj_t *self = self_in;
     mp_printf(print, "Pin(%u)", self->id);

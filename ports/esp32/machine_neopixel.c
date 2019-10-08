@@ -98,7 +98,7 @@ STATIC mp_obj_t machine_neopixel_make_new(const mp_obj_type_t *type, size_t n_ar
     	mp_raise_ValueError("Cannot acquire RMT channel");
     }
 
-    int8_t pin = machine_pin_get_id(args[ARG_pin].u_obj);
+    int8_t pin = machine_pin_get_gpio(args[ARG_pin].u_obj);
 
     int pixels = args[ARG_pixels].u_int;
     int wstype = args[ARG_type].u_int;
