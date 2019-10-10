@@ -1,8 +1,13 @@
 ESPIDF = /opt/esp-idf
-BOARD = GENERIC
+BOARD = DEVKIT
 PORT = /dev/ttyUSB0
 FLASH_MODE = dio
 FLASH_SIZE = 4MB
+
+CONFIG_ESP32_REV_MIN_0=
+CONFIG_ESP32_REV_MIN_1=y
+CONFIG_ESP32_REV_MIN=1
+
 CROSS_COMPILE = xtensa-esp32-elf-
 
 include Makefile
